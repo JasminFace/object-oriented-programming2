@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 
 class Book:
@@ -29,8 +30,9 @@ class Book:
     # @classmethod
     # def overdue_books(cls):
     
-    # @classmethod
-    # def browse(cls):
+    @classmethod
+    def browse(cls):
+        return random.choice(Book.on_shelf)
 
 harry = Book.create("Harry", "John", 1234)
 print(Book.on_shelf)
