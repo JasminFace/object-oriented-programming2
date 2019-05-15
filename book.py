@@ -11,11 +11,26 @@ class Book:
         self.author = author
         self.isbn = isbn
     
-    # def borrow(self):
-    
+    def borrow(self):
+        borrowed = self.lent_out()
+        due_date = self.current_due_date()
+
+        if borrowed == True:
+            return False
+        else:
+            self.on_shelf.remove(self)
+            self.on_loan.append(self)
+            return True
+        
+
     # def return_to_library(self):
     
-    # def lent_out(self):
+    def lent_out(self):
+        for book in Book.on_shelf:
+            if book == Book.on_shelf:
+                return True
+            else:
+                return False
 
     @classmethod
     def create(cls, title, author, isbn):
@@ -24,8 +39,12 @@ class Book:
         return new_book
 
     
-    # @classmethod
-    # def current_due_date(cls):
+    @classmethod
+    def current_due_date(cls):
+        now = datetime.now()
+        two_weeks = 60 * 60 * 24 * 14 # two weeks expressed in seconds  
+        future_timestamp = now.timestamp() + two_weeks
+        return datetime.fromtimestamp(future_timestamp)
     
     # @classmethod
     # def overdue_books(cls):
@@ -34,5 +53,8 @@ class Book:
     def browse(cls):
         return random.choice(Book.on_shelf)
 
-harry = Book.create("Harry", "John", 1234)
+bride_collector = Book.create("Bride Collector", "Ted Dekker", 123456)
 print(Book.on_shelf)
+print(bride_collector.lent_out())
+bride_collector.borrow()
+print(Book.on_loan)
