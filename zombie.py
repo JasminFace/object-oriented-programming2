@@ -71,7 +71,7 @@ class Zombie:
       new_plague_level = random.randint(0,2)
       Zombie.plague_level += new_plague_level
 
-      new_day()
+      cls.new_day()
 
   def encounter(self):
     """This instance method represents you coming across a zombie! This can end in:
