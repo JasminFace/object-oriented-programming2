@@ -1,4 +1,5 @@
-# [str(account) for account in BankAccount.accounts]                       
+# [str(account) for account in BankAccount.accounts]
+# [account.__str__() for account in BankAccount.accounts]
 
 # ['Account balance is: $10', 'Account balance is: $920']
 # 
